@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const { getSuperHeroes } = require("../controllers/superHeroController");
 const path = require("path");
 
 // get all superheroes
-router.get("/", (req, res) => res.send("get all heroes"));
+router.get("/", getSuperHeroes);
 // get superhero by ID
 router.get("/:id", (req, res) => res.send("get hero"));
 // create superhero
