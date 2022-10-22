@@ -11,6 +11,34 @@ const getSuperHeroes = async (req, res) => {
   }
 };
 
+const createSuperHero = async (req, res) => {
+  try {
+    const {
+      nickname,
+      real_name,
+      origin_description,
+      superpowers,
+      catch_phrase,
+    } = req.body;
+
+    const superhero = await SuperHero.create({
+      nickname,
+      real_name,
+      origin_description,
+      superpowers,
+      catch_phrase,
+      images: `http://localhost:${process.env.PORT}/static/${req.file.filename}`,
+    });
+
+    res.status(201).json(superhero);
+  } catch (err) {
+    res.status(500).json({
+      message: "it seems like... superhero doesn't want to be created 0_o",
+    });
+  }
+};
+
 module.exports = {
-    getSuperHeroes  
-}
+  getSuperHeroes,
+  createSuperHero,
+};
