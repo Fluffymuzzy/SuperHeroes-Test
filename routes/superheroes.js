@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   getSuperHeroes,
   createSuperHero,
+  getSuperHeroById
 } = require("../controllers/superHeroController");
 const path = require("path");
 const multer = require("multer");
@@ -23,7 +24,7 @@ const upload = multer({storage});
 // get all superheroes
 router.get("/", getSuperHeroes);
 // get superhero by ID
-router.get("/:id", (req, res) => res.send("get hero"));
+router.get("/:id", getSuperHeroById);
 // create superhero
 router.post("/", upload.single("images"), createSuperHero);
 

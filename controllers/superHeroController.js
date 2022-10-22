@@ -1,5 +1,11 @@
 const SuperHero = require("../models/superhero");
 
+/**
+ * It's an async function that uses the SuperHero model to find all the superheroes in the database and
+ * then sends them back to the client.
+ * @param req - the request object
+ * @param res - the response object
+ */
 const getSuperHeroes = async (req, res) => {
   try {
     const superheroes = await SuperHero.find();
@@ -7,10 +13,31 @@ const getSuperHeroes = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ message: "damn... request error. try again later dude :)" });
+      .json({ message: "damn... request error. try again later dude *-*" });
   }
 };
 
+/**
+ * It's an async function that takes in a request and a response object, and it tries to find a
+ * superhero by their id, and if it can't find one, it sends a 400 status code with a message saying
+ * "can't find this superhero 0_0".
+ * @param req - request
+ * @param res - the response object
+ */
+const getSuperHeroById = async (req, res) => {
+  try {
+    const superhero = await SuperHero.find({ _id: req.params.id });
+    res.status(200).json(superhero);
+  } catch (err) {
+    res.status(400).json({ message: "can't find this superhero 0_0" });
+  }
+};
+
+/**
+ * It creates a new superhero in the database.
+ * @param req - the request object
+ * @param res - the response object
+ */
 const createSuperHero = async (req, res) => {
   const errors = {};
 
@@ -67,7 +94,7 @@ const createSuperHero = async (req, res) => {
     res.status(201).json(superhero);
   } catch (err) {
     res.status(500).json({
-      message: "it seems like... superhero doesn't want to be created 0_o",
+      message: "it seems like... superhero doesn't want to be created -_-",
     });
   }
 };
@@ -75,4 +102,5 @@ const createSuperHero = async (req, res) => {
 module.exports = {
   getSuperHeroes,
   createSuperHero,
+  getSuperHeroById,
 };
