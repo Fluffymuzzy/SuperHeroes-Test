@@ -12,6 +12,40 @@ const getSuperHeroes = async (req, res) => {
 };
 
 const createSuperHero = async (req, res) => {
+  const errors = {};
+
+  if (!req.body.nickname) {
+    errors.nickname = { message: "enter a nickname" };
+  }
+
+  if (!req.body.real_name) {
+    errors.real_name = { message: "enter a real name" };
+  }
+
+  if (!req.body.origin_description) {
+    errors.origin_description = { message: "enter a description" };
+  }
+
+  if (req.body.origin_description && req.body.origin_description.length > 200) {
+    errors.origin_description = { message: "too long description" };
+  }
+
+  if (!req.body.superpowers) {
+    errors.superpowers = { message: "enter a superpowers" };
+  }
+
+  if (!req.body.catch_phrase) {
+    errors.catch_phrase = { message: "enter a phrase" };
+  }
+
+  if (!req.file) {
+    errors.images = { message: "add a picture" };
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return res.status(400).json(errors);
+  }
+
   try {
     const {
       nickname,
