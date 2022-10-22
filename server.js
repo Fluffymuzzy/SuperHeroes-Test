@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/static", express.static(__dirname + "/assets"));
 
-app.get("/api/superheroes", require(".routes/superheroes"));
+app.use("/api/superheroes", require("./routes/superheroes"));
 
 mongoose.connect("mongodb://localhost:27017").then(() => {
   app.listen(port, () => {
