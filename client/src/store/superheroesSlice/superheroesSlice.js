@@ -17,7 +17,7 @@ export const getSuperHeroes = createAsyncThunk(
 const superheroesSlice = createSlice({
   name: "superheroes",
   initialState: {
-    superheroes: null,
+    superheroes: "",
     isError: false,
     isLoading: false,
     message: "",
