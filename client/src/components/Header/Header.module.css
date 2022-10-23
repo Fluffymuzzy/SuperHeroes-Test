@@ -1,0 +1,21 @@
+.header {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.content {
+}
+
+.title {
+}
+
+.desc {
+}
+
+.img {
+  width: auto;
+  height: 500px;
+}
