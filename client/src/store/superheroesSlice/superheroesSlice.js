@@ -30,14 +30,14 @@ const superheroesSlice = createSlice({
 
     builder.addCase(getSuperHeroes.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.planes = action.payload;
+      state.superheroes = action.payload;
     });
 
     builder.addCase(getSuperHeroes.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.message = action.payload.message;
-      state.planes = null;
+      state.superheroes = null;
     });
   },
 });

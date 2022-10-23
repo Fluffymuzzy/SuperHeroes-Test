@@ -1,0 +1,9 @@
+
+.item {
+  cursor: pointer;
+}
+
+.itemImg {
+  width: 100%;
+  height: 360px;
+}
