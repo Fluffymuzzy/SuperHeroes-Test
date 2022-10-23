@@ -1,21 +1,28 @@
-.header {
-  height: 20vh;
+.container {
   display: flex;
   justify-content: center;
-  align-items: center;
- 
+  margin: 20px;
+}
+.list__container {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
 }
 
-.content {
+.list__container a {
+  background-color: #081f2d;
+  border-radius: 29px;
+  border: 1px solid #081f2d;
+  color: white;
+  font-size: 15px;
+  padding: 10px 45px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.title {
-}
-
-.desc {
-}
-
-.img {
-  width: auto;
-  height: 500px;
+.list__container a:hover {
+  background-color: white;
+  color: #081f2d;
+  border-color: #081f2d;
+  transition: 0.3s;
 }

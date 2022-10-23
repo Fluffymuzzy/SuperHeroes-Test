@@ -25,7 +25,7 @@ const SuperHeroes = () => {
   }
 
   const pages = [];
-  console.log(superheroes.length);
+
   for (let i = 1; i <= Math.ceil(superheroes.length / charactersPerPage); i++) {
     pages.push(i);
   }
@@ -78,7 +78,7 @@ const SuperHeroes = () => {
 
   return (
     <div>
-      <Wrapper className={styles.superHeroesWrapper}>
+      <Wrapper>
         {superheroes && <SuperHeroesList superheroes={currentCharacters} />}
       </Wrapper>
       <ul className={styles.pagination}>
