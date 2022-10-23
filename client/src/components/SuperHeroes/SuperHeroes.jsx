@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuperHeroes } from "../../store/superheroesSlice/superheroesSlice";
 import Spinner from "../Spinner/Spinner";
-import Wrapper from "../Wrapper/Wrapper";
-import SuperHeroesList from "../SuperHeroesList/SuperHeroesList";
+import SuperHeroesListItem from "../SuperHeroesListItem/SuperHeroesListItem";
 
 import styles from "./SuperHeroes.module.css";
 
@@ -11,7 +10,7 @@ const SuperHeroes = () => {
   const dispatch = useDispatch();
   const { superheroes, isLoading } = useSelector((state) => state.superheroes);
   const [currentPage, setCurrentPage] = useState(1);
-  const [charactersPerPage, setCharactersPerPage] = useState(6);
+  const [charactersPerPage, setCharactersPerPage] = useState(5);
   const [pageLimit, setPageLimit] = useState(3);
   const [maxPageLimit, setMaxPageLimit] = useState(3);
   const [minPageLimit, setMinPageLimit] = useState(0);
@@ -78,9 +77,9 @@ const SuperHeroes = () => {
 
   return (
     <div>
-      <Wrapper>
-        {superheroes && <SuperHeroesList superheroes={currentCharacters} />}
-      </Wrapper>
+      <div>
+        {superheroes && <SuperHeroesListItem superheroes={currentCharacters} />}
+      </div>
       <ul className={styles.pagination}>
         <button
           onClick={handlePrev}

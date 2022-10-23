@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-import styles from "./SuperHeroesList.module.css";
+import styles from "./SuperHeroesListItem.module.css";
 
-const SuperHero = ({ superheroes }) => {
+const SuperHeroesListItem = ({ superheroes }) => {
   return (
     <ul className={styles.container}>
       {superheroes.map(({ nickname, _id, images }) => (
         <li className={styles.item} key={_id}>
-          <Link to={`/characters/${_id}`}>
+          <Link to={`/superheroes/${_id}`}>
             <img className={styles.itemImg} src={images} alt={nickname} />
             <h3>{nickname}</h3>
           </Link>
@@ -17,4 +17,4 @@ const SuperHero = ({ superheroes }) => {
   );
 };
 
-export default SuperHero;
+export default SuperHeroesListItem;
