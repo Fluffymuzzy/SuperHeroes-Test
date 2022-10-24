@@ -12,6 +12,17 @@ export const getSuperHero = createAsyncThunk(
   }
 );
 
+export const createSuperHero = createAsyncThunk(
+  "CREATE_SUPERHERO",
+  async (superHeroData, thunkApi) => {
+    try {
+      return await superheroesService.createSuperHero(superHeroData);
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.response.data);
+    }
+  }
+);
+
 /* Creating a slice of the state. */
 const superheroSlice = createSlice({
   name: "superhero",
@@ -20,6 +31,13 @@ const superheroSlice = createSlice({
     isError: false,
     isLoading: false,
     message: "",
+    errors: null,
+  },
+
+  reducers: {
+    resetSuperHeroErrors: (state) => {
+      state.errors = null;
+    },
   },
 
   extraReducers: (builder) => {
@@ -38,7 +56,24 @@ const superheroSlice = createSlice({
       state.message = action.payload.message;
       state.superhero = null;
     });
+    // create
+    builder.addCase(createSuperHero.pending, (state) => {
+      state.isLoading = true;
+      state.errors = null;
+    });
+
+    builder.addCase(createSuperHero.fulfilled, (state) => {
+      state.isLoading = false;
+      state.errors = null;
+    });
+
+    builder.addCase(createSuperHero.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.errors = action.payload;
+    });
   },
 });
 
+export const { resetSuperHeroErrors } = superheroSlice.actions;
 export default superheroSlice.reducer;
