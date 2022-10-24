@@ -52,10 +52,6 @@ const HeroPage = () => {
                 origin: {superhero.origin_description}
               </span>
             </li>
-            <div className={styles.itemBtns}>
-              <button onClick={() => navigate("/")}>edit</button>
-              <button onClick={() => navigate("/")}>delete</button>
-            </div>
           </div>
         </div>
       </div>
