@@ -1,43 +1,39 @@
-.superhero {
-  padding: 50px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 80px;
-  place-items: center;
-  min-height: 50vh;
+.wrapper {
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
 }
 
 .info {
+  width: 300px;
+  padding: 20px;
+  margin-left: 30px;
 }
 
-.nickname {
-  margin-top: 40px;
+.list__item {
+  padding: 5px;
+  margin-bottom: 7px;
+}
+
+.item__title {
   font-weight: bold;
 }
 
-.realname {
-  margin: 30px 0;
-  font-size: 24px;
-  font-weight: normal;
-}
-
-.superpowers {
-  margin: 30px 0;
-
-}
-
-.catch_phrase {
-  margin: 30px 0;
-
-}
-
-.description {
-  margin: 30px 0;
-
-  line-height: 24px;
+.img__container {
+  width: 450px;
+  height: 550px;
 }
 
 .image {
-  height: 540px;
+  height: 500px;
   width: auto;
+}
+
+.itemBtns {
+  margin: 50px 10px;
 }

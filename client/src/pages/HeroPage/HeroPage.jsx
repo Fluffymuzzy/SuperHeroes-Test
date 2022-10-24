@@ -19,23 +19,43 @@ const HeroPage = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div className={styles.superhero}>
-      <div className={styles.info}>
-        <button onClick={() => navigate(-1)}>back</button>
-        <button onClick={() => navigate("/")}>edit</button>
-        <button onClick={() => navigate("/")}>delete</button>
-        <h1 className={styles.nickname}>superhero name: {superhero.nickname}</h1>
-        <h3 className={styles.realname}>real name: {superhero.real_name}</h3>
-        <h3 className={styles.superpowers}>superpowers: {superhero.superpowers}</h3>
-        <h3 className={styles.catch_phrase}>catch phrase: {superhero.catch_phrase}</h3>
-        <p className={styles.description}>origin: {superhero.origin_description}</p>
-      </div>
-      <div>
-        <img
-          className={styles.image}
-          src={superhero.images}
-          alt={superhero.nickname}
-        />
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.img__container}>
+          <img
+            className={styles.image}
+            src={superhero.images}
+            alt={superhero.nickname}
+          />
+        </div>
+        <div className={styles.info}>
+          <h1 className={styles.nickname}>{superhero.nickname}</h1>
+          <li className={styles.list__item}>
+            <span className={styles.item__title}>
+              real name: {superhero.real_name}
+            </span>
+          </li>
+          <li className={styles.list__item}>
+            <span className={styles.item__title}>
+              superpowers: {superhero.superpowers}
+            </span>
+          </li>
+          <li className={styles.list__item}>
+            <span className={styles.item__title}>
+              catch phrase: {superhero.catch_phrase}
+            </span>
+          </li>
+          <li className={styles.list__item}>
+            <span className={styles.item__title}>
+              origin: {superhero.origin_description}
+            </span>
+          </li>
+          <div className={styles.itemBtns}>
+            <button onClick={() => navigate(-1)}>back</button>
+            <button onClick={() => navigate("/")}>edit</button>
+            <button onClick={() => navigate("/")}>delete</button>
+          </div>
+        </div>
       </div>
     </div>
   );

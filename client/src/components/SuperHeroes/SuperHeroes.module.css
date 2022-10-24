@@ -1,0 +1,16 @@
+.pagination {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.pagination li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+:global(.active) {
+  background-color: red;
+}
