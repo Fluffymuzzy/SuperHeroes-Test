@@ -29,11 +29,7 @@ const CreateHeroPage = () => {
     formData.append("catch_phrase", phrase);
     formData.append("images", images);
 
-    dispatch(createSuperHero(formData)).then((res) => {
-      if (!res.error) {
-        navigate(`/superheroes/${res.payload._id}`, { replace: true });
-      }
-    });
+    dispatch(createSuperHero(formData));
   }, [
     nickName,
     realName,
@@ -49,7 +45,7 @@ const CreateHeroPage = () => {
 
   return (
     <>
-      <button onClick={() => navigate(-1)}>back</button>
+      <button onClick={() => navigate("/")}>back</button>
       <div className={styles.container}>
         <form className={styles.form}>
           <h1>create superhero</h1>
