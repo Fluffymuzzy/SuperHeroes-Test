@@ -9,9 +9,13 @@ brew tap mongodb/brew
 brew install mongodb-community
 ```
 -Install [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+
 -run and press connect (localhost:27017)
+
 -press ADD DATA
+
 -import superheros.json from root
+
 -press refresh
 
 Install the dependencies and devDependencies and start the server.
